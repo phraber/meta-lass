@@ -1,0 +1,87 @@
+### Please note: This user interface responds dynamically to your input prompts.
+
+There is no "Submit" button.  If it seems slow to update, it is busy
+processing your data.  Please be patient.
+
+## Step 1: Select Sites
+
+This phase of analysis requires:
+
+1. A protein alignment, provisionally assumed to be in FASTA format.
+1. A way to recognize how the longitudinal samples are labeled.  
+By default, sequence names are assumed to be dot-delimited,
+with the timepoint label in the first (left-most) field.
+1. An indication of which sequence is the TF sequence.  
+This is currently taken to be the first sequence in the alignment.
+If HXB2 is included with the alignment, it is used to number alignment columns 
+then removed.
+
+#### Specify a Protein Alignment
+
+You can choose either to use the example data from CH505 or your own alignment.
+If you select your own alignment file, consider using the Advanced Options.
+
+#### Choose a Cutoff TF Loss
+
+You must choose a setting for the cutoff parameter value.  The number
+of sites selected depends on the TF loss cutoff threshold.  Higher
+cutoffs include fewer sites.  This is set high by default, but can be
+adjusted using the slider bar.
+
+#### Review Results
+
+A list of selected sites will appear when defined.  The table is
+interactive.  You can sort rows by clicking on the column name and
+page through results.  Searching is also possible.  When you are
+satisfied with the selected sites, check the "Send selected sites to
+Step 2" box to proceed, then click on "Step 2: Select Sequences".
+
+#### Advanced Options
+
+Check the box to enable several more choices:
+
+1. Specify the format of your alignment file.
+1. Transform asparagines (N) in PNG motifs to another character (O).
+The PNG motif is Nx[ST], where x is any amino acid except proline.
+1. Define options to parse the sample timepoint label from each sequence.
+Identifying timepoint labels is central to the longitudinal analysis.
+Each sequence should use a standard naming scheme, delimited by one of
+the characters listed, and in the same field.  Parse errors will 
+appear in place of the table of selected sites.
+1. To do: force inclusion/exclusion of specific sites.
+1. Add option to specify TF sequence name.
+1. Add options to specify reference sequence name.
+
+## Step 2: Select Sequences
+
+Information on this tab depends on information provided in the
+preceding step.  When results are available, a summary of the number
+of selected sequences will appear on the top left, and a list of
+concatamers will appear in a large panel.  
+
+#### Concatamer List
+
+Concatamers are the selected sites from Step 1, strung together.  One
+concatamer is listed for each of the selected sequences.  The order of
+sites from left to right is intended to capture their relative
+strength of selection, sorted first by when each site first reaches at
+least 10% TF loss, then by the cumulative (non-) TF area.
+
+#### Download Results
+
+Each link under "Download Results" provides a different summary of the
+analysis, including plots of sequence logos for selected sites among
+the selected sequences.
+
+#### Advanced Options
+
+1. The "Minimum variant count" setting specifies that each mutation
+should occur in the alignment at least this many times for inclusion
+among selected sequences, e.g. 2 omits singleton mutations.
+Increasing this setting, or reducing the number of selected sites in
+Step 1, will give fewer sets of selected sequences.
+1. To do: specify indel lengths to be tolerated for inclusion.
+1. Add support to include and exclude sequences by name.
+1. Add ability to download refseq lookup table.
+
+***

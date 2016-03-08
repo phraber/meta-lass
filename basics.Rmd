@@ -1,0 +1,73 @@
+## LASSIE selects sites and sequences from a protein sequence alignment obtained from longitudinal sampling, to represent variation induced by putative immune selection.
+
+Please read [this] (http://mdpi.com/1999-4915/7/10/2881) paper for the whole story.
+
+### Assumptions
+
+Start with a sequence alignment sampled serially from an infected
+host, which characterizes a pathogen population evolving under immune
+pressure.  The population is related by a single common
+"transmitted-founder" (TF) ancestor.  This is generally the first
+sequence in the alignment.  However, the HXB2 reference sequence can
+precede the TF sequence, used only to standardize numbering of
+alignment columns.
+
+Sequence names are assumed to contain information to identify when
+each was sampled.  By default, this is taken to be the first
+dot-delimited field.  However, different field positions and field
+separators can be specified, if necessary, via "Advanced Options".
+Units for the sample timepoints are arbitrary, but assumed to be
+consistent throughout.  That is, mixing days and weeks post-infection
+(for example) is currently unsupported.  Also, sample dates will
+probably not get sorted correctly, unless you use some clear format
+like YYYYMMDD or YYYY/MM/DD.  If you label sample timepoints this way,
+use a different delimiter to distinguish the field that contains the
+date from the date fields themselves.  For example
+`ptid_YYYY-MM-DD_then-clone-or-well-id` will work, but
+`ptid.YYYY.MM.DD.then.clone.or.well.id` will not work, because you
+will be unable to extract and sort all fields used for date values.
+
+### Step 1: Select sites
+
+The first phase of analysis computes TF loss per aligned site for each 
+time-point sampled, to select sites of interest where TF loss exceeds a 
+threshold.  Sites that lose the ancestral TF amino acids are likely under 
+positive selection and merit further investigation.  
+
+### Step 2: Select sequences
+
+The second phase selects a set of sequences with mutations among selected 
+sites.  A swarm of sequences represents diversity in the population sampled
+and can subsequently be used to study developing immune responses.  
+
+### Citation
+
+
+If you use the CH505 example data in publication, please cite
+Liao et al., 2013 (http://ncbi.nlm.nih.gov/pubmed/23552890) and
+Gao et al., 2014 (http://ncbi.nlm.nih.gov/pubmed/25065977).
+
+To cite `lassie`, please use:
+
+```{r eval=FALSE}
+Hraber P, Korber B, Wagh K, Giorgi EE, Bhattacharya T, et al.  Longitudinal antigenic sequences and sites from intra-host evolution (LASSIE) identifies immune-selected HIV variants.  Viruses 7(10): 5443-5475, 2015.
+```
+
+Thank you!
+
+BibTeX entry for LaTeX
+
+```{r eval=FALSE}
+@Article{,
+  title = {Longitudinal Antigenic Sequences and Sites from Intra-Host Evolution (LASSIE) Identifies Immune-Selected HIV Variants},
+  journal = {Viruses},
+  year = {2015},
+  volume = {7},
+  number = {10},
+  pages = {5443-5475},
+  author = {Peter Hraber and Bette Korber and Kshitij Wagh and Elena E. Giorgi and Tanmoy Bhattacharya and S. Gnanakaran and Alan S. Lapedes and Gerald H. Learn and Edward F. Kreider and Yingying Li and George M. Shaw and Beatrice H. Hahn and David C. Montefiori and S. Munir Alam and Mattia Bonsignori and M. Anthony Moody and Hua-Xin Liao and Feng Gao and Barton F. Haynes},
+  url = {http://mdpi.com/1999-4915/7/10/2881},
+}
+```
+
+***
