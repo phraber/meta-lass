@@ -1,4 +1,6 @@
 library(shiny)
+library(DT)
+
 options(shiny.trace=F)
 
 shinyServer(function(input, output, session) {

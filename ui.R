@@ -3,9 +3,15 @@ library(shiny)
 shinyUI(
 
     fluidPage(
+<<<<<<< HEAD
 #        includeCSS("hiv-de.css"),
         tags$head(
 #            tags$link(rel="stylesheet", type="text/css", href="hiv-de.css")
+=======
+        # includeCSS("hiv-de.css"),
+        tags$head(
+            # tags$link(rel="stylesheet", type="text/css", href="hiv-de.css")
+>>>>>>> 0c1f9bff381af9771d322fb6ffde9ff95dd3ac57
         ),
 
         titlePanel("LASSIE: Longitudinal Antigenic Swarm Selection from Intrahost Evolution"),
