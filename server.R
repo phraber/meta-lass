@@ -32,10 +32,15 @@ shinyServer(function(input, output, session) {
 
     updateInputs <- reactive({
 
+        validate(
+	    need(input$tf_loss_when_up <= input$tf_loss_cutoff,
+	    message = "Please review your settings.\n'Order sites by when they first reach this % TF loss' cannot exceed 'Exclude sites with % peak TF loss below'.",
+        ))
+
         lassie::set.tf.loss.cutoff(
             lassie::set.alignment.file(updateParser(), updateInfile(),
-            alignment_format=input$aln.format),
-            as.numeric(input$tf_loss_cutoff))
+                alignment_format=input$aln.format),
+            as.numeric(input$tf_loss_cutoff), as.numeric(input$tf_loss_when_up))
     })
 
     updateSwarmset <- reactive({
@@ -81,7 +86,22 @@ shinyServer(function(input, output, session) {
 #                ncol(S$aas_aln), " aligned columns.")
     })
 
-    output$selectedSites <- DT::renderDataTable({
+    output$tabulateByTimepoint <- renderTable({
+	validate(
+            need(input$demo_data | !is.null(input$aas_file$datapath),
+            "")
+        )
+
+	S <- updateInputs()
+
+# S$n_per_timepoint is a named one-D vector i.e. table object
+# need to convert it to a data frame.  
+# transpose function is used to list all in one named row.
+	try ( as.data.frame(t(as.data.frame.vector(S$n_per_timepoint, optional=T)), row.names=c('n')) )
+    })
+
+#    output$selectedSites <- DT::renderDataTable({
+    output$selectedSites <- renderDataTable({
 
 	validate(
             need(input$demo_data | !is.null(input$aas_file$datapath),
@@ -192,6 +212,7 @@ selectSequences()
     )
 
     output$downloadSwarmsetLogos <- downloadHandler(
+
         filename = function() {
             paste0('lassie-swarmset-logos-', Sys.Date(), '.',
                 ifelse(input$logo.stratify, "zip", input$logo.format))

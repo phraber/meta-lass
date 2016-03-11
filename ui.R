@@ -3,9 +3,9 @@ library(shiny)
 shinyUI(
 
     fluidPage(
-        includeCSS("hiv-de.css"),
+#        includeCSS("hiv-de.css"),
         tags$head(
-            tags$link(rel="stylesheet", type="text/css", href="hiv-de.css")
+#            tags$link(rel="stylesheet", type="text/css", href="hiv-de.css")
         ),
 
         titlePanel("LASSIE: Longitudinal Antigenic Swarm Selection from Intrahost Evolution"),
@@ -35,6 +35,11 @@ hr(),
                             'Show more options', FALSE),
 
                         conditionalPanel("input.sites_advanced",
+
+                        sliderInput("tf_loss_when_up",
+                            "Order sites by when they first reach this % TF loss:",
+                            min = 0, max = 100, value = 10),
+
                             radioButtons("aln.format", "Alignment Format",
                                 c("fasta", "clustal", "phylip", "msf", "mase"),
                                 inline=T )),
@@ -42,7 +47,7 @@ hr(),
                         conditionalPanel("input.sites_advanced",
                             checkboxInput('map.pngs2o',
                                 'Map N to O in Nx[ST] PNG motifs.',
-                                FALSE)),
+                                TRUE)),
 
                         conditionalPanel("input.sites_advanced",
                             p(strong("Timepoint Parsing"))),
@@ -62,21 +67,38 @@ hr(),
                     ),
 
                     mainPanel(
+
                         strong("Results: Selected Sites"),
+
                         p(textOutput("nSelectedSites")),
-                        DT::dataTableOutput("selectedSites"),
+
+			dataTableOutput("selectedSites"),
+
 			conditionalPanel("output.selectedSites",
-#			conditionalPanel("input.demo_data | !is.null(input$aas_file$datapath)",
-                        hr(),
-                        p(strong("Review selected sites and check the box below"),
-                        checkboxInput('select_seqs',
-                            'Send selected sites to Step 2', FALSE)))
-                    )
-                )
+
+			    hr(),
+                            p(strong("Review timepoint parsing"),
+			    checkboxInput('by_timepoint',
+				'Tabulate sequence counts by timepoint', FALSE)),
+			    conditionalPanel("input.by_timepoint",
+			        tableOutput("tabulateByTimepoint")),
+
+#			conditionalPanel("output.selectedSites",
+                            hr(),
+                            p(strong("Review selected sites and check the box below"),
+				checkboxInput('select_seqs',
+				    'Send selected sites to Step 2', FALSE)
+                            ),
+                            hr()
+                        ) # end of conditional panel
+                    ) # end of main panel
+                ) # end of sidebar layout
             ), # end of tab panel
 
             tabPanel("Step 2: Select Sequences", id="seqs",
+
                 sidebarLayout(
+
                     sidebarPanel(
 
                         strong(p(textOutput("showSummary"))),
