@@ -32,9 +32,27 @@ adjusted using the slider bar.
 
 A list of selected sites will appear when defined.  The table is
 interactive.  You can sort rows by clicking on the column name and
-page through results.  Searching is also possible.  When you are
-satisfied with the selected sites, check the "Send selected sites to
-Step 2" box to proceed, then click on "Step 2: Select Sequences".
+page through results.  Searching is also possible.  
+
+Things to look for when reviewing results are the number of sites
+and accurately parsed timepoint labels.
+
+Other informative columns for review are when_up and tf_area.  The
+former indicates when the site first exceeds 10% TF loss, or another
+value if given by the "Order sites by when they first reach..."
+slider.  The tf_area is computed as the polygon area under the TF
+line, which may help resolve timing between sites that revert or
+change at different rates.  The columns labeled 'l' and 'r' are used
+internally to label sites where indels occur relative to the reference
+sequence, and can be disregarded.  (They will eventually be removed
+from this table.)  For rows where these values equal, either value
+gives the reference sequence numbering.  Rows where 'l' and 'r' differ
+indicate inserted sites, relative to the reference sequence, as is
+common for hypervariable loops of the HIV-1 Envelope glycoprotein.
+
+When you are satisfied with the selected sites, check the "Send
+selected sites to Step 2" box to proceed, then click on "Step 2:
+Select Sequences".
 
 #### Advanced Options
 
