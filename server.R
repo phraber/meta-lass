@@ -89,6 +89,11 @@ shinyServer(function(input, output, session) {
 #                ncol(S$aas_aln), " aligned columns.")
     })
 
+    observe({
+        tf_cutoff <- input$tf_loss_cutoff
+    	updateSliderInput(session, "tf_loss_when_up", max=tf_cutoff)
+    })
+
     output$tabulateByTimepoint <- renderTable({
 	validate(
             need(input$demo_data | !is.null(input$aas_file$datapath),
