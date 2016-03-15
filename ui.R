@@ -179,6 +179,9 @@ hr(),
             ),  # end of tab panel
             tabPanel("Detailed Help", id="details",
                 includeMarkdown("details.Rmd")
+            ),  # end of tab panel
+            tabPanel("License and Citation", id="license",
+                includeMarkdown("legalese.Rmd")
             )  # end of tab panel
         ) # end of tabset
     ) # end of page

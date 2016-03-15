@@ -1,6 +1,7 @@
 library(shiny)
 #library(DT)
 
+options(shiny.maxRequestSize=50 *1024^2) # 50MB
 options(shiny.trace=F)
 
 shinyServer(function(input, output, session) {
