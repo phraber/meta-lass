@@ -37,6 +37,13 @@ page through results.  Searching is also possible.
 Things to look for when reviewing results are the number of sites
 and accurately parsed timepoint labels.
 
+Timepoint labels can be in any units and are assumed to indicate time
+elapsed since infection.  A mixture of different units is not advised.
+The values are used primarily when reordering sites.  After parsing
+the field indicated, any characters (e.g. "d123" or "56dpi") will be
+stripped and the remaining digits converted to a numeric value (123
+and 56).
+
 Other informative columns for review are when_up and tf_area.  The
 former indicates when the site first exceeds 10% TF loss, or another
 value if given by the "Order sites by when they first reach..."
@@ -66,7 +73,9 @@ Identifying timepoint labels is central to the longitudinal analysis.
 Each sequence should use a standard naming scheme, delimited by one of
 the characters listed, and in the same field.  Parse errors will 
 appear in place of the table of selected sites.
-1. To do: force inclusion/exclusion of specific sites.
+
+Not yet done: 
+1. Force inclusion/exclusion of specific sites.
 1. Add option to specify TF sequence name.
 1. Add options to specify reference sequence name.
 
