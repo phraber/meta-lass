@@ -180,7 +180,7 @@ hr(),
             tabPanel("Detailed Help", id="details",
                 includeMarkdown("details.Rmd")
             ),  # end of tab panel
-            tabPanel("License and Citation", id="license",
+            tabPanel("License", id="license",
                 includeMarkdown("legalese.Rmd")
             )  # end of tab panel
         ) # end of tabset

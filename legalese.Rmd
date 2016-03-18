@@ -1,18 +1,3 @@
-To cite lassie methods in publication:
-
-Hraber P, Korber B, Wagh K, Giorgi EE, Bhattacharya T, et
-al. Longitudinal antigenic sequences and sites from intra-host
-evolution (LASSIE) identifies immune-selected HIV variants. Viruses,
-7(10): 5443-5475, 2015.
-
-If you use the included sequence data in publication, please cite
-
-Liao et al., 2013 (http://ncbi.nlm.nih.gov/pubmed/23552890) and Gao et al.,
-2014 (http://ncbi.nlm.nih.gov/pubmed/25065977).  
-
-Thank you.
-
-
 Copyright (C) 2016 Peter Hraber
 
 License is GPLv2
