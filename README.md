@@ -9,4 +9,4 @@ If you should encounter an error, please let me know!
 
 If you are new to R, first download the latest version from https://cran.r-project.org
 
-RStudio is a terrific front-end and integrated R environment, freely available at https://rstudio.com/products/RStudio/
+RStudio is a terrific front-end and integrated R environment, freely available at https://rstudio.com/products/RStudio/#Desktop
