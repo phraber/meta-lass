@@ -145,10 +145,13 @@ hr(),
                                 "Selected sequence names")),
 
                             p(downloadButton('downloadSwarmsetSequences',
-                                "Selected sequences")),
+                                "Selected sequences in Raw/Table format")),
+
+                            p(downloadButton('downloadFastaSwarmsetSequences',
+                                "Selected sequences in Fasta format")),
 
                             p(downloadButton('downloadSwarmsetConcatamers',
-                                "Selected concatamers")),
+                                "Selected concatamers in Raw/Table format")),
 
                             p(downloadButton('downloadMessages',
                                 'Output messages')),

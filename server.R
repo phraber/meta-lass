@@ -209,6 +209,15 @@ selectSequences()
         }
     )
 
+    output$downloadFastaSwarmsetSequences <- downloadHandler(
+        filename = function() {
+            paste0('lassie-sequences-', Sys.Date(), '.fasta')
+        },
+        content = function(file) {
+            lassie::export.fasta.swarmset(updateSwarmset(), file)
+        }
+    )
+
     output$downloadSwarmsetConcatamers <- downloadHandler(
         filename = function() {
             paste0('lassie-concatamers-', Sys.Date(), '.txt')
