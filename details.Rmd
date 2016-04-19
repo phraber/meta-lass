@@ -111,4 +111,9 @@ Step 1, will give fewer sets of selected sequences.
 1. Add support to include and exclude sequences by name.
 1. Add ability to download refseq lookup table.
 
+#### Sequence Logos
+
+The code to generate sequence logos is a standalone python program.  If you see an error like this "Could not find Ghostscript on path. There should be either a gs executable or a gswin32c.exe on your system's path" then please install gs or gswin32c.exe per instructions for "Dependencies" provided at http://weblogo.threeplusone.com/manual.html#download 
+
 ***
+

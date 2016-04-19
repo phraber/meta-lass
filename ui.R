@@ -1,5 +1,9 @@
 library(shiny)
 
+logo.formats <- c("pdf", "eps", "png", "jpg")
+names(logo.formats) = c("pdf", "eps", "png", "jpeg")
+#if (!system.file("gs") & !system.file("")
+
 shinyUI(
 
     fluidPage(
@@ -154,9 +158,7 @@ hr(),
 
                             p("Options for Logos"),
                                 radioButtons("logo.format", label=NA,
-                                    choices = c("pdf" = "pdf", "eps" = "eps",
-                                        "png" = "png", #"svg" = "svg",
-                                        "jpg" = "jpeg"), inline=T),
+                                    choices = logo.formats, inline=T),
                                 checkboxInput("logo.dotify",
                                     "Use blank for TF states"),
                                 checkboxInput("logo.stratify",
