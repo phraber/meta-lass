@@ -47,7 +47,8 @@ shinyServer(function(input, output, session) {
     })
 
     updateSwarmset <- reactive({
-        lassie::swarmset(updateInputs(), min_counts=input$mv.count)
+        suppressMessages(lassie::swarmset(updateInputs(), 
+	    min_counts=input$mv.count))
     })
 
     testParsing <- reactive({
