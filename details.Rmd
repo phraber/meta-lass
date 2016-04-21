@@ -75,9 +75,10 @@ the characters listed, and in the same field.  Parse errors will
 appear in place of the table of selected sites.
 
 Not yet done: 
+
 1. Force inclusion/exclusion of specific sites.
 1. Add option to specify TF sequence name.
-1. Add options to specify reference sequence name.
+1. Add option to specify reference sequence name.
 
 ## Step 2: Select Sequences
 
@@ -85,6 +86,12 @@ Information on this tab depends on information provided in the
 preceding step.  When results are available, a summary of the number
 of selected sequences will appear on the top left, and a list of
 concatamers will appear in a large panel.  
+
+Not yet done (future "advanced options"):
+
+1. Generate/download time-series plots per site.
+1. Force inclusion/exclusion of specific sequences by name.
+1. Specify maximum tolerated deletion & insertion length.
 
 #### Concatamer List
 
