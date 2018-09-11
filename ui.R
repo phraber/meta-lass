@@ -7,8 +7,8 @@ names(logo.formats) = c("pdf", "eps", "png", "jpeg")
 shinyUI(
 
     fluidPage(
-#        tags$head(
-#        ),
+        tags$head(
+        ),
 
 #        titlePanel("LASSIE: Longitudinal Antigenic Swarm Selection from Intrahost Evolution"),
 
