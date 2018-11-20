@@ -1,7 +1,7 @@
 library(shiny)
 
-logo.formats <- c("pdf", "eps", "png", "jpg")
-names(logo.formats) = c("pdf", "eps", "png", "jpeg")
+logo.formats       <- c("pdf", "eps", "png", "png_print", "svg", "jpeg")
+names(logo.formats) = c("pdf", "eps", "png", "hi-res png", "svg", "jpeg")
 #if (!system.file("gs") & !system.file("")
 
 shinyUI(
@@ -163,11 +163,11 @@ hr(),
                                 radioButtons("logo.format", label=NA,
                                     choices = logo.formats, inline=T),
                                 checkboxInput("logo.dotify",
-                                    "Use blank for TF states"),
+                                    "Use blank for TF states", T),
                                 checkboxInput("logo.stratify",
-                                    "Make one plot per timepoint"),
+                                    "Make one plot per timepoint", T),
                                 checkboxInput("logo.sort",
-                                    "Sort sites from N- to C-term")
+                                    "Sort sites from N- to C-term", T)
                         ) # end of select_seqs conditional panel
                     ),
 

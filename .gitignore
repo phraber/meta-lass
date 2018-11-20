@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.DS_Store
+*.pyc
+*/.DS_Store
+*/*/.DS_Store
+*~
